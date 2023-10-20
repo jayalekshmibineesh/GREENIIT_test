@@ -22,6 +22,10 @@
         <li class="nav-item">
           <a class="nav-link text-light" href="{{ route('logout') }}">Logout</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="{{ route('index') }}">Home</a>
+        </li>
+
       </ul>
     </div>
   </div>

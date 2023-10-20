@@ -25,5 +25,6 @@ Route::get('/leave_request',[HomeController::class,'leave_request'])->name('leav
 Route::post('/request_send',[HomeController::class,'request_send'])->name('request_send');
 Route::get('/view_leaverecords',[HomeController::class,'view_leaverecords'])->name('view_leaverecords');
 Route::get('/update_status/{id}',[HomeController::class,'update_status'])->name('update_status');
+Route::get('/update_reject_status/{id}',[HomeController::class,'update_reject_status'])->name('update_reject_status');
 Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 

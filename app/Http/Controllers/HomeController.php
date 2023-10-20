@@ -92,7 +92,14 @@ public function view_leaverecords()
 //Leave status update
 public function update_status($id)
 {
+
  DB::table('leaverecods')->where('leave_request_id',$id)->update(['leave_status'=>1]);
+ return redirect()->route('view_leaverecords');
+}
+public function update_reject_status($id)
+{
+ DB::table('leaverecods')-> where('leave_request_id',$id)->update([ 'reject_status'=> "rejected"]);
+
  return redirect()->route('view_leaverecords');
 }
 //logout

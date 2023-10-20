@@ -15,7 +15,8 @@ class Leaverecods extends Model
      'end_date',
      'reason',
      'id',
-     'leave_status'
+     'leave_status',
+     'reject_status',
                 
     ];
 protected $primaryKey='leave_request_id';

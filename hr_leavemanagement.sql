@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2023 at 07:00 AM
+-- Generation Time: Oct 20, 2023 at 12:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -51,6 +51,7 @@ CREATE TABLE `leaverecods` (
   `reason` varchar(255) NOT NULL,
   `id` int(50) NOT NULL,
   `leave_status` tinyint(4) NOT NULL,
+  `reject_status` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -59,11 +60,12 @@ CREATE TABLE `leaverecods` (
 -- Dumping data for table `leaverecods`
 --
 
-INSERT INTO `leaverecods` (`leave_request_id`, `type`, `start_date`, `end_date`, `reason`, `id`, `leave_status`, `created_at`, `updated_at`) VALUES
-(1, 'Medical', '2023-10-12', '2023-10-18', 'sick', 2, 0, '2023-10-20 01:28:53', '2023-10-20 01:28:53'),
-(3, 'casual', '2023-11-01', '2023-10-03', 'marriage function', 2, 0, '2023-10-20 01:31:55', '2023-10-20 01:31:55'),
-(5, 'casual', '2023-10-13', '2023-10-22', 'Trip to Finland', 2, 0, '2023-10-20 01:35:46', '2023-10-20 01:35:46'),
-(6, 'Medical', '2023-10-21', '2023-10-28', 'surgeory', 2, 0, '2023-10-20 01:47:43', '2023-10-20 01:47:43');
+INSERT INTO `leaverecods` (`leave_request_id`, `type`, `start_date`, `end_date`, `reason`, `id`, `leave_status`, `reject_status`, `created_at`, `updated_at`) VALUES
+(1, 'Medical', '2023-10-12', '2023-10-18', 'sick', 2, 1, NULL, '2023-10-20 01:28:53', '2023-10-20 01:28:53'),
+(3, 'casual', '2023-11-01', '2023-10-03', 'marriage function', 2, 0, 'rejected', '2023-10-20 01:31:55', '2023-10-20 01:31:55'),
+(5, 'casual', '2023-10-13', '2023-10-22', 'Trip to Finland', 2, 1, 'rejected', '2023-10-20 01:35:46', '2023-10-20 01:35:46'),
+(6, 'Medical', '2023-10-21', '2023-10-28', 'surgeory', 2, 1, NULL, '2023-10-20 01:47:43', '2023-10-20 01:47:43'),
+(7, 'casual', '2023-10-11', '2023-10-15', 'trip', 5, 0, NULL, '2023-10-20 15:33:53', '2023-10-20 15:33:53');
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2023_10_19_064002_create_leaverecods_table', 1);
+(5, '2023_10_19_064002_create_leaverecods_table', 1),
+(6, '2023_10_20_091923_add_reject_status_to_leaverecods_table--table=leaverecods', 2),
+(7, '2023_10_20_093055_add_reject_status_to_leaverecods', 2);
 
 -- --------------------------------------------------------
 
@@ -205,13 +209,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `leaverecods`
 --
 ALTER TABLE `leaverecods`
-  MODIFY `leave_request_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `leave_request_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
